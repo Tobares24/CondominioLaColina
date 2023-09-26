@@ -1,0 +1,19 @@
+mat-drawer {
+  width: 30%;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid black;
+}
+
+mat-drawer-content {
+  text-align: center;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid black;
+}
+
+.main-text {
+  background-color: #008037;
+  color: #fff;
+  text-align: center;
+}

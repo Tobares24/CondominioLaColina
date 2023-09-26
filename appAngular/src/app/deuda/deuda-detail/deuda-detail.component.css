@@ -1,0 +1,52 @@
+*{ 
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.deuda{
+    margin: 20px;
+    font-size: 30px;
+    margin-bottom: 2%;
+}
+
+.titulo{
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+.texto{
+    font-size: 16px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+ }
+
+ th, td {
+    width: 25%;
+    text-align: left;
+    padding: 1.3em;
+ }
+
+ th {
+    background: #008037;
+    color: #FFFFFF;
+    font-weight: 500;
+ }
+
+ .subtitulo{
+    font-weight: 500;
+ }
+
+ th, td {
+    width: 25%;
+}  
+
+ mat-card{
+    margin-bottom: 10%;
+ }
+
+ .mat-card:not([class*="mat-elevation-z"]) {
+    box-shadow:none;
+  }

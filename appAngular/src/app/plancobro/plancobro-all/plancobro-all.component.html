@@ -1,0 +1,52 @@
+<mat-card class="full-width">
+
+  <mat-card-title id="titulo">
+    Planes de Cobro
+    <a mat-mini-fab matTooltip="Crear" aria-label="Crear" class="btnCrear" (click)="crearPlanCobro()">
+      <mat-icon class="btnCrear">add</mat-icon>
+    </a>
+  </mat-card-title>
+
+  <mat-card-content>
+    <div class="mat-elevation-z8" *ngIf="dataSource">
+
+      <!-- Table -->
+      <table mat-table class="full-width-table" [dataSource]="dataSource" matSort matSortStart="desc"
+        aria-label="Elements">
+        <!-- Columna nombre -->
+        <ng-container matColumnDef="id">
+          <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>
+            Número de plan
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.id }}
+          </td>
+        </ng-container>
+
+        <!-- Columna precio -->
+        <ng-container matColumnDef="descripcion">
+          <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
+          <td mat-cell *matCellDef="let row">{{ row.descripcion }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+          <th class="tituloCol" mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-mini-fab matTooltip="Actualizar" aria-label="Actualizar" color="success"
+              (click)="actualizarPlanCobro(row.id)">
+              <mat-icon class="mat-18">edit</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Detalle" aria-label="Detalle" color="primary"
+              (click)="detallePlanCobro(row.id)">
+              <mat-icon class="mat-18">info</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <!-- Table -->
+    </div>
+  </mat-card-content>
+</mat-card>

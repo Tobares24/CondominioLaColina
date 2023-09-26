@@ -1,0 +1,30 @@
+*{
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    text-align: center;
+}
+
+#titulo{
+    font-weight: bold;
+    color: #E6B36D;
+}
+
+#texto{
+    font-size: 18px;
+}
+
+#boton {
+    font-size: 18px;
+    background-color: #008037;
+    color: #FFFFFF;
+}
+
+mat-card{
+    margin-top: 1.7%;
+    margin-bottom: 1.7%;
+}
+
+.mat-card:not([class*="mat-elevation-z"]) {
+    box-shadow:none;
+  }

@@ -1,0 +1,40 @@
+.container-form {
+    padding: 5px 5px;
+    background-color: #fff;
+  }
+  
+  .btn {
+    font-size: 18px;
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #008037;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+  }
+  
+  .btn:hover {
+    background-color: #008037;
+  }
+  
+  .full-width {
+    width: 100%;
+    padding: 10px;
+    background-color: #008037;
+  }
+  
+  .title {
+    color: black;
+  }
+  
+  .shipping-card {
+    min-width: 120px;
+    margin: 0px auto;
+    background-color: #fff;
+  }
+
+  form{
+    margin-bottom: 2.5%;
+  }
+  
+  .mat-error {
+    color: #FFF;
+  }

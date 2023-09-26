@@ -1,0 +1,83 @@
+<div class="container sombra" data-aos="zoom-in">
+    <div>
+        <mat-card-header class="container-title">
+            <mat-card-title class="title">Inicio de Sesión</mat-card-title>
+        </mat-card-header>
+    </div>
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="200"
+            height="200" viewBox="0 0 24 24" stroke-width="2" stroke="#008037" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <circle cx="12" cy="12" r="9" />
+            <circle cx="12" cy="10" r="3" />
+            <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+        </svg>
+    </div>
+
+    <div class="container-form">
+        <form [formGroup]="formulario" novalidate>
+            <div class="container-fields">
+                <div class="text">Email</div>
+                <div class="container-flex">
+                    <div class="image">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="30"
+                            height="30" viewBox="0 0 24 24" stroke-width="2" stroke="#e6b36d" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <rect x="3" y="5" width="18" height="14" rx="2" />
+                            <polyline points="3 7 12 13 21 7" />
+                        </svg>
+                    </div>
+                    <div class="input-text">
+                        <input type="text" placeholder="Email" formControlName="email">
+                        <mat-error *ngIf="errorHandling('email','required')">
+                            Email es <strong>requerido</strong>
+                        </mat-error>
+                        <mat-error *ngIf="errorHandling('email','email')">
+                            Verifique el <strong>formato</strong> del email
+                        </mat-error>
+                    </div>
+                </div>
+
+                <div class="text">Contraseña</div>
+                <div class="container-flex">
+                    <div style="margin-left: 50px;" class="image">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-key" width="30"
+                            height="30" viewBox="0 0 24 24" stroke-width="2" stroke="#e6b36d" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="8" cy="15" r="4" />
+                            <line x1="10.85" y1="12.15" x2="19" y2="4" />
+                            <line x1="18" y1="5" x2="20" y2="7" />
+                            <line x1="15" y1="8" x2="17" y2="10" />
+                        </svg>
+                    </div>
+                    <div class="input-text">
+                        <input [type]="hide ? 'password': 'text'" placeholder="Contraseña" formControlName="clave">
+                        <mat-error *ngIf="errorHandling('clave', 'required')">
+                            Contraseña es <strong>requerida</strong>
+                        </mat-error>
+                    </div>
+                    <div>
+                        <button class="btn-hidepass" mat-icon-button matSuffix (click)="hide = !hide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div style="margin: 10px;">
+                    <a class="text-link">¿Ha olvidado su contraseña?</a>
+                </div>
+            </div> <!-- contenedor fields -->
+            <div>
+                <button class="boton" (click)="submitForm()">Iniciar Sesión</button>
+            </div>
+            <div style="margin: 10px 0px;">
+                <a class="btn-link">Registrarse</a>
+            </div>
+
+        </form>
+    </div>
+</div>

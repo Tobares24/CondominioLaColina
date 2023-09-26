@@ -1,0 +1,169 @@
+<h1 style="color: #008037; margin: 20px 5px;">Reservaciones</h1>
+<mat-tab-group style="background-color: #000; height: auto;" animationDuration="1500ms" mat-align-tabs="center">
+
+    <!-- Solicitudes -->
+    <mat-tab label="Pendientes">
+        <mat-card class="full-width">
+            <mat-card-content class="contenidoTabla">
+                <div class="mat-elevation-z8" *ngIf="dataSource">
+
+                    <table mat-table class="full-width-table" [dataSource]="dataSource" matSort matSortStart="desc"
+                        aria-label="Elements">
+                        <ng-container matColumnDef="foto">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Imagen</th>
+                            <td mat-cell *matCellDef="let row">
+                                <img src="{{ row.areaComun.foto }}" style="width: 200px; height: 150px;" />
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="usuario">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+                            <td mat-cell *matCellDef="let row">
+                                {{ row.usuario.nombre }}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="estado">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+                            <td mat-cell *matCellDef="let row">
+                                {{ row.estado.descripcion }}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="acciones">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef>Acciones</th>
+                            <td mat-cell *matCellDef="let row">
+                                <button mat-mini-fab
+                                    matTooltip="Aprobar" aria-label="Actualizar" color="success" class="btn"
+                                    (click)="updateEstado(row.id, 'Aprobar')">
+                                    <mat-icon class="mat-18">check_circle_outline</mat-icon>
+                                </button>
+                                <button mat-mini-fab
+                                    matTooltip="Rechazar" aria-label="Actualizar" color="success" class="btn"
+                                    (click)="updateEstado(row.id, 'Rechazar')">
+                                    <mat-icon class="mat-18">highlight_off</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+
+                    <mat-paginator #paginator [length]="dataSource?.data?.length" [pageIndex]="0" [pageSize]="5"
+                        [pageSizeOptions]="[3, 5, 10]" aria-label="Seleccione una pagina">
+                    </mat-paginator>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-tab>
+
+    <!-- Aprobadas -->
+    <mat-tab label="Aprobadas">
+        <mat-card class="full-width">
+            <mat-card-content class="contenidoTabla">
+                <div class="mat-elevation-z8" *ngIf="dataSource2">
+
+                    <table mat-table class="full-width-table" [dataSource]="dataSource2" matSort matSortStart="desc"
+                        aria-label="Elements">
+                        <ng-container matColumnDef="foto">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Imagen</th>
+                            <td mat-cell *matCellDef="let row">
+                                <img src="{{ row.areaComun.foto }}" style="width: 200px; height: 150px;" />
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="usuario">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+                            <td mat-cell *matCellDef="let row">
+                                {{ row.usuario.nombre }}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="estado">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+                            <td mat-cell *matCellDef="let row">
+                                {{ row.estado.descripcion }}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="acciones">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef>Acciones</th>
+                            <td mat-cell *matCellDef="let row">
+                                <button [disabled]="row.idEstado === 2 ? true : false" mat-mini-fab
+                                    matTooltip="Actualizar" aria-label="Actualizar" color="success" class="btn"
+                                    (click)="updateEstado(row.id, row.idEstado)">
+                                    <mat-icon class="mat-18">{{row.idEstado === 1 ? 'notification_important' :
+                                        row.idEstado
+                                        ===
+                                        2 ? 'check_circle_outline' : 'highlight_off'}}</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+
+                    <mat-paginator #paginator [length]="dataSource2?.data?.length" [pageIndex]="0" [pageSize]="5"
+                        [pageSizeOptions]="[3, 5, 10]" aria-label="Seleccione una pagina">
+                    </mat-paginator>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-tab>
+
+    <!-- Rechazadas -->
+    <mat-tab label="Rechazadas">
+        <mat-card class="full-width">
+            <mat-card-content class="contenidoTabla">
+                <div class="mat-elevation-z8" *ngIf="dataSource3">
+        
+                    <table mat-table class="full-width-table" [dataSource]="dataSource3" matSort matSortStart="desc"
+                        aria-label="Elements">
+                        <ng-container matColumnDef="foto">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Imagen</th>
+                            <td mat-cell *matCellDef="let row">
+                                <img src="{{ row.areaComun.foto }}" style="width: 200px; height: 150px;" />
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="usuario">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+                            <td mat-cell *matCellDef="let row">
+                                {{ row.usuario.nombre }}
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="estado">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+                            <td mat-cell *matCellDef="let row">
+                                {{ row.estado.descripcion }}
+                            </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="acciones">
+                            <th class="tituloCol" mat-header-cell *matHeaderCellDef>Acciones</th>
+                            <td mat-cell *matCellDef="let row">
+                                <button [disabled]="row.idEstado === 3 ? true : false" mat-mini-fab matTooltip="Actualizar"
+                                    aria-label="Actualizar" color="success" class="btn"
+                                    (click)="updateEstado(row.id, row.idEstado)">
+                                    <mat-icon class="mat-18">{{row.idEstado === 1 ? 'notification_important' : row.idEstado
+                                        ===
+                                        2 ? 'check_circle_outline' : 'highlight_off'}}</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+        
+                    <mat-paginator #paginator [length]="dataSource3?.data?.length" [pageIndex]="0" [pageSize]="5"
+                        [pageSizeOptions]="[3, 5, 10]" aria-label="Seleccione una pagina">
+                    </mat-paginator>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-tab>
+</mat-tab-group>

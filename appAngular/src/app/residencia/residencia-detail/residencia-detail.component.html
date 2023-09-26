@@ -1,0 +1,97 @@
+<div style="text-align: right; margin: 10px;" [hidden]="user.user.idRol === 1 ? false : true">
+  <span style="font-size: 20px; margin-right: 10px;">Asignar Plan de planCobro</span>
+  <a (click)="agregarPlanCobro()" class="link" mat-mini-fab matTooltip="Asignar" aria-label="Asignar">
+    <mat-icon class="link">forward</mat-icon>
+  </a>
+</div>
+<mat-card class="dashboard-card" *ngIf="datos">
+  <mat-card-content class="dashboard-card-content contenido">
+    <div id="contenido1">
+      <img class="foto" src="{{ datos.foto }}" />
+    </div>
+
+    <div id="contenido2">
+      <mat-card-title id="titulo">Detalle Residencia</mat-card-title>
+
+      <div class="detalle">
+
+        <div class="info">
+          <mat-icon class="icon">home</mat-icon>
+          <p>
+            <span class="subtitulos">Residencia</span><br />
+            {{ datos.numResidencia }}
+          </p>
+        </div>
+
+        <div class="info">
+          <mat-icon class="icon">home</mat-icon>
+          <p>
+            <span class="subtitulos">Estado</span><br />
+            {{ datos.estado.descripcion }}
+          </p>
+        </div>
+
+        <div class="info">
+          <mat-icon class="icon">payment</mat-icon>
+          <p>
+            <span class="subtitulos">Precio</span><br />
+            ₡{{ datos.precio }}
+          </p>
+        </div>
+      </div>
+
+      <div class="detalle">
+        <div class="info">
+          <mat-icon class="icon">calendar_today</mat-icon>
+          <p>
+            <span class="subtitulos">Año de inicio</span><br />
+            {{ datos.annioInicio }}
+          </p>
+        </div>
+
+        <div class="info">
+          <mat-icon class="icon">hot_tub</mat-icon>
+          <p>
+            <span class="subtitulos">Baños</span><br />
+            {{ datos.cantBannios }}
+          </p>
+        </div>
+
+        <div class="info">
+          <mat-icon class="icon">directions_car</mat-icon>
+          <p>
+            <span class="subtitulos">Vehiculos</span><br />
+            {{ datos.cantCarros }}
+          </p>
+        </div>
+      </div>
+
+      <div class="detalle">
+        <div class="info">
+          <mat-icon class="icon">group</mat-icon>
+          <p>
+            <span class="subtitulos">Personas</span><br />
+            {{ datos.cantPersonas }}
+          </p>
+        </div>
+
+        <div class="info">
+          <mat-icon class="icon">hotel</mat-icon>
+          <p>
+            <span class="subtitulos">Habitaciones</span><br />
+            {{ datos.cantHabitaciones }}
+          </p>
+        </div>
+
+        <div class="info">
+          <mat-icon class="icon">person</mat-icon>
+          <p>
+            <span class="subtitulos">Propietario</span><br />
+            {{ datos.usuario.nombre }} {{ datos.usuario.primerApellido }}
+            {{ datos.usuario.segundoApellido }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

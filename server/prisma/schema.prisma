@@ -1,0 +1,160 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id              Int            @id @default(autoincrement())
+  nombre          String
+  primerApellido  String
+  segundoApellido String
+  email           String         @unique
+  clave           String
+  rol             Rol            @relation(fields: [idRol], references: [id])
+  idRol           Int
+  estado          Estado_Usuario @relation(fields: [idEstado], references: [id])
+  idEstado        Int
+  incidencias     Incidencia[]
+  informaciones   Informacion[]
+  reservaciones   Reserva[]
+  residencia      Residencia[]
+}
+
+model Rol {
+  id          Int       @id @default(autoincrement())
+  descripcion String
+  usuarios    Usuario[]
+}
+
+model Estado_Usuario {
+  id          Int       @id @default(autoincrement())
+  descripcion String
+  usuarios    Usuario[]
+}
+
+model Incidencia {
+  id          Int               @id @default(autoincrement())
+  descripcion String
+  estado      Estado_Incidencia @relation(fields: [idEstado], references: [id])
+  idEstado    Int
+  usuario     Usuario           @relation(fields: [idUsuario], references: [id])
+  idUsuario   Int
+}
+
+model Estado_Incidencia {
+  id          Int          @id @default(autoincrement())
+  descripcion String
+  incidencias Incidencia[]
+}
+
+model Informacion {
+  id                Int              @id @default(autoincrement())
+  foto              String
+  descripcion       String           @db.VarChar(1000)
+  asunto            String
+  fecha             String
+  tipoInformacion   Tipo_Informacion @relation(fields: [idTipoInformacion], references: [id])
+  idTipoInformacion Int
+  usuario           Usuario          @relation(fields: [idUsuario], references: [id])
+  idUsuario         Int
+}
+
+model Tipo_Informacion {
+  id            Int           @id @default(autoincrement())
+  descripcion   String
+  informaciones Informacion[]
+}
+
+model Reserva {
+  id          Int            @id @default(autoincrement())
+  areaComun   Area_Comun     @relation(fields: [idAreaComun], references: [id])
+  idAreaComun Int
+  usuario     Usuario        @relation(fields: [idUsuario], references: [id])
+  idUsuario   Int
+  estado      Estado_Reserva @relation(fields: [idEstado], references: [id])
+  idEstado    Int
+  horario     Horario[]
+}
+
+model Estado_Reserva {
+  id          Int       @id @default(autoincrement())
+  descripcion String
+  reserva     Reserva[]
+}
+
+model Area_Comun {
+  id      Int       @id @default(autoincrement())
+  nombre  String
+  foto    String
+  reserva Reserva[]
+  horario Horario[]
+}
+
+model Horario {
+  id         Int          @id @default(autoincrement())
+  horaInicio String
+  horaFinal  String
+  fecha      String
+  areaComun  Area_Comun[]
+  Reserva    Reserva[]
+}
+
+model Residencia {
+  numResidencia      Int               @id @default(autoincrement())
+  cantPersonas       Int
+  cantCarros         Int
+  cantHabitaciones   Int
+  cantBannios        Int
+  annioInicio        String
+  precio             Decimal           @db.Decimal(10, 2)
+  foto               String
+  usuario            Usuario           @relation(fields: [idUsuario], references: [id])
+  idUsuario          Int
+  estado             Estado_Residencia @relation(fields: [idEstadoResidencia], references: [id])
+  idEstadoResidencia Int
+  deuda              Deuda[]
+}
+
+model Estado_Residencia {
+  id          Int          @id @default(autoincrement())
+  descripcion String
+  residencias Residencia[]
+}
+
+model Rubro_Cobro {
+  id          Int          @id @default(autoincrement())
+  descripcion String
+  monto       Decimal      @db.Decimal(10, 2)
+  planCobro   Plan_Cobro[]
+}
+
+model Plan_Cobro {
+  id          Int           @id @default(autoincrement())
+  descripcion String
+  deuda       Deuda[]
+  rubroCobro  Rubro_Cobro[]
+}
+
+model Deuda {
+  id            Int          @id @default(autoincrement())
+  monto         Decimal      @db.Decimal(10, 2)
+  fecha         String
+  estadoDeuda   Estado_Deuda @relation(fields: [idEstadoDeuda], references: [id])
+  idEstadoDeuda Int
+  planCobro     Plan_Cobro   @relation(fields: [idPlan_Cobro], references: [id])
+  idPlan_Cobro  Int
+  residencia    Residencia[]
+}
+
+model Estado_Deuda {
+  id          Int     @id @default(autoincrement())
+  descripcion String
+  deuda       Deuda[]
+}

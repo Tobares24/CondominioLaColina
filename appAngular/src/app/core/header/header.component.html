@@ -1,0 +1,61 @@
+<mat-toolbar class="header" *ngIf="!isAuthenticated.value">
+  <div class="spacer">
+    <div class="contentHeader">
+      <div>
+        <img class="imgIcon" src="./assets/images/ImagenLogo.png" />
+      </div>
+      <div>
+        <span class="titulo">La Colina</span>
+      </div>
+    </div>
+  </div>
+
+  <a mat-button class="letra">Inicio</a>
+  <a mat-button class="letra">Sobre Nosotros</a>
+  <a mat-button class="letra" (click)="login()">Inicio de Sesión</a>
+</mat-toolbar>
+
+<!-- Menú Admin -->
+<mat-toolbar class="header" *ngIf="isAuthenticated.value == true && currentUser != null">
+  <div *ngIf="currentUser.value.user.idRol === 1" style="display: flex">
+    <a mat-button class="link" (click)="residencias()">Residencias</a>
+    <a mat-button class="link" (click)="planesCobro()">Planes de Cobro</a>
+    <a mat-button class="link" (click)="rubrosCobro()">Rubros de Cobro</a>
+    <a mat-button class="link" (click)="users()">Usuarios</a>
+    <a mat-button class="link" (click)="areasReservadas()">Áreas Reservadas</a>
+    <a mat-button class="link" (click)="informacion()">Información</a>
+    <a mat-button class="link" (click)="incidencias()">Incidencias</a>
+    <a mat-button class="link" (click)="deudas()">Deudas</a>
+    <button mat-button class="link" (click)="logout()">Cerrar Sesión</button>
+    <div>
+      <span class="text" *ngIf="isAuthenticated">
+        Usuario:
+        <ng-container>
+          {{currentUser.value.user.nombre}} {{currentUser.value.user.primerApellido}}
+          {{currentUser.value.user.segundoApellido}}
+        </ng-container>
+      </span>
+    </div>
+  </div>
+</mat-toolbar>
+
+<!-- Menú residente -->
+<mat-toolbar class="header" *ngIf="isAuthenticated.value == true && currentUser != null">
+  <div *ngIf="currentUser.value.user.idRol === 2" style="display: flex">
+    <a mat-button class="link" (click)="misResidencias()">Residencias</a>
+    <a mat-button class="link" (click)="crearIncidencia()">Crear Incidencia</a>
+    <a mat-button class="link" (click)="reservarArea()">Reservar Área Común</a>
+    <a mat-button class="link" (click)="misReservaciones()">Reservaciones</a>
+    <a mat-button class="link" (click)="misDeudas()">Deudas</a>
+    <button mat-button class="letra" (click)="logout()">Cerrar Sesión</button>
+    <div>
+      <span *ngIf="isAuthenticated">
+        Usuario:
+        <ng-container>
+          {{currentUser.value.user.nombre}} {{currentUser.value.user.primerApellido}}
+          {{currentUser.value.user.segundoApellido}}
+        </ng-container>
+      </span>
+    </div>
+  </div>
+</mat-toolbar>

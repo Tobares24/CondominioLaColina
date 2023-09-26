@@ -1,0 +1,60 @@
+* {
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0 auto;
+  }
+  
+  #titulo {
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
+  
+  .full-width {
+    border-radius: 0%;
+    height: 510px;
+  }
+  
+  .full-width-table {
+    width: 100%;
+  }
+  
+  .btnCrear {
+    background-color: #008037;
+    color: #ffffff;
+  }
+  
+  .tituloCol {
+    font-size: 16px;
+    color: #ffffff;
+  }
+  
+  table {
+    text-align: left;
+    width: 100%;
+  }
+  
+  th {
+    background-color: #008037;
+  }
+  
+  th,
+  td {
+    width: 15%;
+  }
+  
+  .desc {
+    width: 40%;
+  }
+  
+  mat-card{
+    margin-bottom: 10.5%;
+  }
+  
+  .mat-card:not([class*="mat-elevation-z"]) {
+    box-shadow: none;
+  }
+  
+  .mat-tab-label, .mat-tab-link {
+    color: #000;
+    background-color: #008037;
+  }

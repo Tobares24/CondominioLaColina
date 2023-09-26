@@ -1,0 +1,65 @@
+body{
+  background-color: black;
+}
+
+.bg-img {
+  background-image: url(src/assets/images/casas.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 750px;
+  position: relative;
+}
+
+.bgPosition {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainText {
+  color: #fff;
+  font-size: 60px;
+}
+
+.secondText {
+  color: #fff;
+  font-size: 25px;
+  margin-top: 15%;
+}
+
+.boton {
+  font-size: 18px;
+  margin-top: 60%;
+  background-color: transparent;
+  border: 1px solid #008037;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.boton:hover {
+  background-color: #008037;
+}
+
+.container-news {
+  margin: 20px auto;
+  max-width: 1200px;
+  background-color: rgba(0, 0, 0, 3);
+  padding: 20px;
+  text-align: center;
+}
+
+.sombra {
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 3);
+  border-radius: 20px;
+  -webkit-box-shadow: 10px 1px 242px 200px rgba(0, 0, 0, 0.76);
+  -moz-box-shadow: 10px 1px 242px 200px rgba(0, 0, 0, 0.76);
+  box-shadow: 10px 1px 242px 200px rgba(0, 0, 0, 0.76);
+}
+

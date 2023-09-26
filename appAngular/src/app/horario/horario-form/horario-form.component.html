@@ -1,0 +1,28 @@
+<div>
+    <form>
+        <h1>Crear Horario</h1>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <div style="margin: 10px;">
+                <span>Horario de inicio</span>
+                <input formControlName="horaInicio">
+            </div>
+            <div style="margin: 10px;">
+                <span>Horario de finalización</span>
+                <input formControlName="horaFin">
+            </div>
+            <div style="margin: 10px;">
+                <span>Fecha</span>
+                <input id="text" matInput type="text" [matDatepicker]="basicDatepicker" placeholder="Selecciona una fecha">
+                <mat-datepicker-toggle matSuffix [for]="basicDatepicker" style="color: black"></mat-datepicker-toggle>
+                <mat-datepicker #basicDatepicker></mat-datepicker>
+
+                <!-- <input [matDatepicker]="basicDatepicker">
+                <mat-datepicker-toggle style="color: black" [for]="basicDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #basicDatepicker ></mat-datepicker> -->
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <button class="btn" mat-raised-button color="primary" type="submit">Guardar</button>
+        </div>
+    </form>
+</div>

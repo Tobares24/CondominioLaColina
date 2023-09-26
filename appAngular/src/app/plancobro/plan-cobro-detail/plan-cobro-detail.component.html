@@ -1,0 +1,32 @@
+<mat-card *ngIf="datos">
+  <mat-card-title id="titulo">Plan de Cobro</mat-card-title>
+
+  <div class="planCobro">
+    <p class="texto"><span class="subtitulos">Número:</span> {{ datos.id }}</p>
+    <p class="texto">
+      <span class="subtitulos">Descripción:</span> {{ datos.descripcion }}
+    </p>
+  </div>
+
+  <h1 style="text-align: center; margin: 30px">Rubros de Cobro</h1>
+  <!-- Table -->
+  <mat-card class="container-table">
+    <table>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col }}
+        </th>
+      </tr>
+      <tr *ngFor="let item of datos.rubroCobro">
+        <td>
+          {{ item.id }}
+        </td>
+        <td>
+          {{ item.descripcion }}
+        </td>
+        <td>₡{{ item.monto }}</td>
+      </tr>
+    </table>
+    <!-- Table -->
+  </mat-card>
+</mat-card>

@@ -1,0 +1,68 @@
+.example-container {
+  width: 98.8%;
+  height: 100%;
+  margin: 5px;
+  border: 1px solid #555;
+}
+
+.boton {
+  font-size: 18px;
+  padding: 10px;
+  background-color: #008037;
+  color: #fff;
+}
+
+.boton:hover {
+  color: #000;
+  background-color: transparent;
+  border: 2px solid #008037;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+button:disabled {
+  background-color: rgb(197, 197, 197);
+  color: #000;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.main-text {
+  background-color: #008037;
+  color: #fff;
+  text-align: center;
+}
+
+.mat-chip-list-wrapper {
+  display: none;
+}
+
+
+
+.mat-chip.mat-standard-chip {
+  background-color: green;
+}
+
+.mat-chip.mat-chip-disabled {
+  background-color: red;
+}
+
+mat-icon {
+  height: 20px;
+  width: 20px;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+mat-drawer {
+  width: 30%;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid black;
+}
+
+mat-drawer-content {
+  text-align: center;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid black;
+}

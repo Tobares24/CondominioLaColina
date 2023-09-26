@@ -1,0 +1,106 @@
+.container {
+  width: 40%;
+  border: 4px solid #008037;
+  margin: 2px auto;
+  text-align: center;
+  background-color: #000;
+}
+
+.container-form {
+  padding: 1rem;
+}
+
+.container-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.container-flex {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.container-title {
+  margin: 2rem;
+}
+
+.input-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-hidepass{
+  color: #008037;
+}
+
+.image {
+  margin: 0px 10px;
+}
+
+.text {
+  font-size: 1rem;
+  color: #fff;
+  display: block;
+  margin: 20px 0px;
+}
+
+.text-link {
+  font-size: 1.2rem;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.text-link:hover {
+  color: #e6b36d;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.btn-link {
+  font-size: 15px;
+  color: #fff;
+  padding: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-link:hover {
+  color: #e6b36d;
+}
+
+.boton {
+  font-size: 18px;
+  color: #fff;
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid #008037;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.boton:hover {
+  background-color: #008037;
+}
+
+/* .sombra {
+  padding: 10px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 3);
+  border-radius: 20px;
+  -webkit-box-shadow: 10px 1px 242px 200px rgba(0, 0, 0, 0.76);
+  -moz-box-shadow: 10px 1px 242px 200px rgba(0, 0, 0, 0.76);
+  box-shadow: 10px 1px 242px 200px rgba(0, 0, 0, 0.76);
+} */

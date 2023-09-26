@@ -1,0 +1,49 @@
+<form [formGroup]="plancobroForm" (ngSubmit)="isCreate ? crearPlanCobro() : actualizarPlanCobro()" novalidate>
+    <input type="hidden" formControlName="id">
+    <mat-card class="shipping-card">
+        <mat-card-header class="title">
+            <mat-card-title>{{titleForm}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label style="color: #fff;">Descripción</mat-label>
+                        <input matInput #descripcion maxlength="20" formControlName="descripcion">
+                        <mat-hint align="end">{{descripcion.value.length}} / 20</mat-hint>
+                        <mat-error style="font-size: 15px;"
+                            *ngIf="plancobroForm.controls['descripcion'].hasError('required')">
+                            Descripción es <strong>requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <mat-select placeholder="Rubro Cobros" formControlName="rubroCobro" multiple>
+                            <mat-option (onSelectionChange)="sumaMontoRubroCobro(item.monto)"
+                                *ngFor="let item of rubroCobrosList" [value]="item.id">
+                                {{ item.monto }}
+                            </mat-option>
+                        </mat-select>
+
+                        <mat-error style="font-size: 15px;"
+                            *ngIf="plancobroForm.controls['rubroCobro'].hasError('required')">
+                            Rubros de Cobro es <strong>requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+            <div class="full-width">
+                <p style="color: #fff;">Monto Total: <strong>{{total}}</strong></p>
+            </div>
+        </mat-card-content>
+        <mat-card-actions style="margin: 0 auto; text-align: center;">
+            <button mat-raised-button type="submit" class="btn">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

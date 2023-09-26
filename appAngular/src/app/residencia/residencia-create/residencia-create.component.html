@@ -1,0 +1,154 @@
+<div style="min-height: 600px;">
+    <form [formGroup]="residenciaForm" novalidate style="background-color: #008037;"
+        (ngSubmit)="isCreate ? actualizar() : crearResidencia()">
+        <input type="hidden" formControlName="id">
+        <div
+            style="width: 95%; margin: 10px; display: flex; flex-direction: column; align-items: center; align-content: center; justify-content: center;">
+            <div>
+                <div>
+                    <label style="color: #fff">Agregar imagen</label>
+                    <input type="text" id="foto" style="margin: 10px;" placeholder="Link Foto" formControlName="foto">
+                    <a style="background-color: #fff; border-color: #000; text-decoration: none; cursor: pointer;"
+                        (click)="obtenerURLFoto()">Mostrar</a>
+                    <div style="display: block; text-align: center;">
+                        <mat-error style="font-size: 15px; text-align: center; color: #000;"
+                            *ngIf="residenciaForm.controls['foto'].hasError('required')">
+                            Link/URL de la imagen es requerida
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="width: 30%; margin: 0 auto;">
+            <img style="width: 100%;" src="{{urlImagen}}">
+        </div>
+
+        <div
+            style="margin: 20px 0; display: flex; align-items: center; align-content: center; justify-content: center;">
+            <div style="margin: 10px;">
+                <label style="display: block; color: #fff;">Cantidad de Personas</label>
+                <input style="width: 300px;" type="text" placeholder="Cantidad Personas" formControlName="cantPersonas">
+                <div>
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="residenciaForm.controls['cantPersonas'].hasError('required')">
+                        Cantidad de personas es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+
+            <div style="margin: 10px;">
+                <label style="display: block; color: #fff;">Cantidad de Carros</label>
+                <input style="width: 300px;" type="text" placeholder="Cantidad Carros" formControlName="cantCarros">
+                <div>
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="residenciaForm.controls['cantCarros'].hasError('required')">
+                        Cantidad de carros es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+
+            <div style="margin: 10px;">
+                <label style="display: block; color: #fff;">Cantidad de Habitaciones</label>
+                <input style="width: 300px;" type="text" placeholder="Cantidad Habitaciones"
+                    formControlName="cantHabitaciones">
+                <div>
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="residenciaForm.controls['cantHabitaciones'].hasError('required')">
+                        Cantidad de habitaciones es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+        </div>
+
+        <div
+            style="margin: 20px 0; display: flex; align-items: center; align-content: center; justify-content: center;">
+            <div style="margin: 10px;">
+                <label style="display: block; color: #fff;">Cantidad de Baños</label>
+                <input style="width: 300px;" type="text" placeholder="Cantidad Baños" formControlName="cantBannios">
+                <div>
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="residenciaForm.controls['cantBannios'].hasError('required')">
+                        Cantidad de baños es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+
+            <div style="margin: 10px;">
+                <label style="display: block; color: #fff;">Año de Inicio</label>
+                <input style="width: 300px;" type="text" placeholder="Año Inicio" formControlName="annioInicio">
+                <div>
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="residenciaForm.controls['annioInicio'].hasError('required')">
+                        Año de inicio es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+
+            <div style="margin: 10px;">
+                <label style="display: block; color: #fff;">Precio</label>
+                <input style="width: 300px;" type="text" placeholder="Precio" formControlName="precio">
+                <div>
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="residenciaForm.controls['precio'].hasError('required')">
+                        Precio es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+        </div>
+
+        <div
+            style="margin: 20px 0; display: flex; align-items: center; align-content: center; justify-content: center;">
+            <div style="margin: 10px;">
+                <label style="display: block; color: #fff;">Comprador o Dueño</label>
+                <mat-select style="width: 300px;" formControlName="usuario">
+                    <mat-option *ngFor="let item of userList" [value]="item.id">
+                        {{item.nombre}}
+                    </mat-option>
+                </mat-select>
+                <div>
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="residenciaForm.controls['usuario'].hasError('required')">
+                        Comprador/Dueño es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+
+            <div style="margin: 10px;">
+                <label style="display: block; color: #fff;">Estado</label>
+                <mat-select style="width: 300px;" formControlName="estado">
+                    <mat-option *ngFor="let item of estadoList" [value]="item.id">
+                        {{item.descripcion}}
+                    </mat-option>
+                </mat-select>
+                <div>
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="residenciaForm.controls['estado'].hasError('required')">
+                        Estado es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+
+            <div style="margin: 10px;">
+                <label style="display: block; color: #fff;">Asignar Plan de Cobro</label>
+                <mat-select [disabled]="isCreate" style="width: 300px;" formControlName="planCobro">
+                    <mat-option *ngFor="let item of planCobroList" [value]="item.id">
+                        {{item.descripcion}}
+                    </mat-option>
+                </mat-select>
+                <div>
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="residenciaForm.controls['planCobro'].hasError('required')">
+                        Plan Cobro es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="text-align: center; padding: 10px;">
+            <button class="btn">Guardar</button>
+        </div>
+    </form>
+</div>

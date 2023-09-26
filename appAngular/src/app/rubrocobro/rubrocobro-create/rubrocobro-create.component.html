@@ -1,0 +1,40 @@
+<form [formGroup]="rubroForm" (ngSubmit)="isCreate ? crearRubro() : actualizarRubro()" novalidate>
+    <input type="hidden" formControlName="id" />
+
+    <mat-card class="shipping-card">
+        <mat-card-header class="title">
+            <mat-card-title>{{ titleForm }} Rubro de Cobro</mat-card-title>
+        </mat-card-header>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline" class="full-width">
+                    <input [readonly]="!isCreate" #descripcionRubro maxlength="50" matInput
+                        placeholder="Descripción" formControlName="descripcion" />
+                    <mat-hint align="end">{{descripcionRubro.value.length}}/ 50</mat-hint>
+                    <mat-error style="font-size: 15px;" *ngIf="rubroForm.controls['descripcion'].hasError('required')">
+                        Descripción es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Precio" formControlName="monto" />
+                    <mat-error style="font-size: 15px;" *ngIf="rubroForm.controls['monto'].hasError('required')">
+                        El precio es <strong>requerido</strong>
+                    </mat-error>
+                    <mat-error style="font-size: 15px;" *ngIf="rubroForm.controls['monto'].hasError('pattern')">
+                        El precio debe ser numérico y no puede tener decimales
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <mat-card-actions style="margin: 0 auto; text-align: center;">
+            <button class="btn" mat-raised-button color="primary" type="submit">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

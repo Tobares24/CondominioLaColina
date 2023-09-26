@@ -1,0 +1,35 @@
+.grid-container {
+  margin: 20px;
+}
+
+.boton {
+  color: #fff;
+  background-color: #008037;
+}
+
+.boton:hover {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #008037;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.mat-grid-tile .mat-grid-tile-header > * {
+  color: #fff;
+  font-size: 20px;
+}
+
+.mat-grid-tile .mat-grid-tile-footer > * {
+  font-size: 20px;
+  padding: 5px 10px;
+}
+
+.mat-grid-tile .mat-grid-tile-header,
+.mat-grid-tile .mat-grid-tile-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+}

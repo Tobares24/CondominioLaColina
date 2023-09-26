@@ -1,0 +1,59 @@
+<div class="bg-img">
+  <div class="bgPosition">
+    <div>
+      <h1 class="mainText">La Colina</h1>
+    </div>
+
+    <div>
+      <p class="secondText" id="text">¡Condominio que te conecta con la naturaleza!</p>
+    </div>
+
+    <div>
+      <button mat-raised-button class="boton">
+        Regístrate
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Seccion de noticias-->
+<div class="container-news sombra">
+  <mat-tab-group animationDuration="1500ms" mat-align-tabs="center">
+    <mat-tab label="Noticias">
+      <h1 style="margin-bottom: 70px; margin-top: 40px; font-size: 60px; color: #fff;">Noticias</h1>
+      <div class="slider-container" *ngFor="let item of datos">
+        <div *ngIf="item.tipoInformacion.id === 1" class="carousel-container">
+          <h2 style="margin: 30px 0px; color: #fff; font-size: 30px;">{{item.asunto}}</h2>
+          <img src="{{item.foto}}" style="width: 500px; margin: 10px;">
+          <p style="color: #fff; font-size: 20px; margin: 20px 0px;">Fecha de
+            publicación: <strong>{{item.fecha}}</strong></p>
+          <p style="color: #fff; font-size: 20px; text-align: justify; display: block;">{{item.descripcion}}</p>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Avisos">
+      <h1 style="margin-bottom: 70px; margin-top: 40px; font-size: 60px; color: #fff;">Avisos</h1>
+      <div class="slider-container" *ngFor="let item of datos">
+        <div *ngIf="item.tipoInformacion.id === 2" class="carousel-container">
+          <h2 style="margin: 30px 0px; color: #fff; font-size: 30px;">{{item.asunto}}</h2>
+          <img src="{{item.foto}}" style="width: 500px; margin: 10px;">
+          <p style="color: #fff; font-size: 20px; margin: 20px 0px;">Fecha de
+            publicación: <strong>{{item.fecha}}</strong></p>
+          <p style="color: #fff; font-size: 20px; text-align: justify; display: block;">{{item.descripcion}}</p>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Archivo Documental">
+      <h1 style="margin-bottom: 70px; margin-top: 40px; font-size: 60px; color: #fff;">Archivos Documentales</h1>
+      <div class="slider-container" *ngFor="let item of datos">
+        <div *ngIf="item.tipoInformacion.id === 3" class="carousel-container">
+          <h2 style="margin: 30px 0px; color: #fff; font-size: 30px;">{{item.asunto}}</h2>
+          <img src="{{item.foto}}" style="width: 500px; margin: 10px;">
+          <p style="color: #fff; font-size: 20px; margin: 20px 0px;">Fecha de
+            publicación: <strong>{{item.fecha}}</strong></p>
+          <p style="color: #fff; font-size: 20px; text-align: justify; display: block;">{{item.descripcion}}</p>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

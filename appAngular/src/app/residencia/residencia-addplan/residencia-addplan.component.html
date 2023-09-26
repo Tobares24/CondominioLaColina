@@ -1,0 +1,49 @@
+<div style="background-color: #008037; padding: 5px;">
+    <h1 class="main-text">Asignar Plan de Cobro a la residencia {{datos.numResidencia}}</h1>
+</div>
+<div style="text-align: center; margin: 10px;">
+    <img style="width: 42%;" src="{{datos.foto}}">
+</div>
+
+<div style="background-color: #008037; margin-bottom: 10px;">
+    <form [formGroup]="planForm" novalidate>
+        <div style="display: flex; align-items: center; align-content: center; justify-content: center;">
+
+            <div>
+                <span class="text">Fecha de Cobro</span>
+                <input [min]="today" formControlName="fecha" readonly="true" style="width: 300px;" id="text" matInput type="text"
+                    [matDatepicker]="basicDatepicker" placeholder="Selecciona una fecha">
+                <mat-datepicker-toggle matSuffix [for]="basicDatepicker" style="color: #fff"></mat-datepicker-toggle>
+                <mat-datepicker #basicDatepicker></mat-datepicker>
+
+
+                <div style="text-align: center;">
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="planForm.controls['fecha'].hasError('required')">
+                        Plan Cobro es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+
+            <div>
+                <span class="text">Plan de Cobro</span>
+                <mat-select formControlName="planCobro" style="width: 300px; border: 1px solid #000;">
+                    <mat-option *ngFor="let item of planList" [value]="item.id">
+                        {{item.descripcion}}
+                    </mat-option>
+                </mat-select>
+
+                <div style="text-align: center;">
+                    <mat-error style="font-size: 14px; text-align: center; color: #000;"
+                        *ngIf="planForm.controls['planCobro'].hasError('required')">
+                        Plan Cobro es <strong>requerido</strong>
+                    </mat-error>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button (click)="agregarPlan()" class="btn">Asignar</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,26 @@
+.container-input {
+  margin: 10px;
+}
+
+.text {
+  display: block;
+  font-size: 15px;
+  color: #fff
+}
+
+.input {
+  width: 300px;
+}
+
+.btn {
+  font-size: 18px;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #000;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: black;
+}

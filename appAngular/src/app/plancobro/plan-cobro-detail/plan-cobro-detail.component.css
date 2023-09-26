@@ -1,0 +1,49 @@
+*{
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+#titulo{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.texto{
+    font-size: 16px;
+}
+
+.planCobro{
+    margin: 20px;
+    font-size: 30px;
+    margin-bottom: 2%;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+ }
+
+ th, td {
+    width: 25%;
+    text-align: left;
+    padding: 1.3em;
+ }
+
+ th {
+    background: #008037;
+    color: #FFFFFF;
+    font-weight: 500;
+ }
+
+ .subtitulos{
+    font-weight: 500;
+ }
+
+ mat-card{
+    margin-bottom: 8%;
+ }
+
+ .mat-card:not([class*="mat-elevation-z"]) {
+    box-shadow:none;
+  }

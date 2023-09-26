@@ -1,0 +1,87 @@
+<form [formGroup]="informacionForm" (ngSubmit)="isCreate ? crearInfo() : actualizarInfo()" novalidate>
+    <input type="hidden" formControlName="id">
+    <mat-card class="shipping-card">
+        <mat-card-header class="title">
+            <mat-card-title>{{titleForm}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label style="color: #fff;">Foto</mat-label>
+                        <input matInput formControlName="foto">
+                        <mat-error style="font-size: 15px;"
+                            *ngIf="informacionForm.controls['foto'].hasError('required')">
+                            Foto es <strong>requerida</strong>
+                        </mat-error>
+                        <mat-error *ngIf="informacionForm.controls['foto'].hasError('pattern')">
+                            La URL ingresada <strong>no es válida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label style="color: #fff;">Descripción</mat-label>
+                        <input matInput formControlName="descripcion">
+                        <mat-error style="font-size: 15px;"
+                            *ngIf="informacionForm.controls['descripcion'].hasError('required')">
+                            Descripción es <strong>requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label style="color: #fff;">Asunto</mat-label>
+                        <input matInput formControlName="asunto">
+                        <mat-error style="font-size: 15px;"
+                            *ngIf="informacionForm.controls['asunto'].hasError('required')">
+                            Asunto es <strong>requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label style="color: #fff;">Fecha</mat-label>
+                        <input placeholder="dd/mm/yyyy" matInput formControlName="fecha">
+                        <mat-error style="font-size: 15px;"
+                            *ngIf="informacionForm.controls['fecha'].hasError('required')">
+                            Fecha es <strong>requerida</strong>
+                        </mat-error>
+                        <mat-error *ngIf="informacionForm.controls['fecha'].hasError('pattern')">
+                            El formato de fecha <strong>no es válido</strong>
+                            Ejemplo: 22/03/2023
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col" *ngIf="tipoInformacionList">
+                    <mat-form-field class="full-width">
+                        <mat-select placeholder="Tipo Información" formControlName="tipoInformacion">
+                            <mat-option *ngFor="let item of tipoInformacionList" [value]="item.id">
+                                {{item.descripcion}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error style="font-size: 15px;"
+                            *ngIf="informacionForm.controls['tipoInformacion'].hasError('required')">
+                            Tipo Información es <strong>requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions style="margin: 0 auto; text-align: center;">
+            <button mat-raised-button type="submit" class="btn">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

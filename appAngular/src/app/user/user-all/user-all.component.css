@@ -1,0 +1,49 @@
+*{
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+  
+  #titulo{
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
+  
+  .full-width{
+      border-radius: 0%;
+  }
+  
+  .full-width-table {
+      width: 100%;
+  }
+  
+  .btnCrear{
+      background-color: #008037;
+      color: #FFFFFF;
+  }
+  
+  .btnDetalle{
+      color: #FFFFFF;
+  }
+  
+  
+  .tituloCol{
+    font-size: 16px;
+    color: #FFFFFF;
+  }
+  
+  table{
+    text-align: left;
+    width: 100%;
+  }
+  
+  th{
+    background-color: #008037;
+  }
+  
+  th, td {
+    width: 25%;
+  }
+  
+  .mat-card:not([class*="mat-elevation-z"]) {
+    box-shadow: none;
+  }

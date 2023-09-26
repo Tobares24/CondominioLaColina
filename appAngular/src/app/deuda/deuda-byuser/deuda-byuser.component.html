@@ -1,0 +1,57 @@
+<h1 style="font-size: 20px; margin: 10px;">Cuentas</h1>
+
+<div class="mat-elevation-z8" *ngIf="dataSource">
+    <!-- Table -->
+    <table mat-table class="full-width-table" [dataSource]="dataSource" matSort matSortStart="desc"
+        aria-label="Elements">
+
+        <!-- Columna id residencia-->
+        <ng-container matColumnDef="numResidencia">
+            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>
+                Número de Residencia
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.numResidencia }}
+            </td>
+        </ng-container>
+
+        <!-- Columna precio -->
+        <ng-container matColumnDef="nombre">
+            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>
+                Usuario
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.usuario.nombre }}
+                {{ row.usuario.primerApellido }}
+                {{ row.usuario.segundoApellido }}
+            </td>
+        </ng-container>
+
+        <ng-container>
+            <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>
+                Estado
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <span *ngFor="let item of row.deuda">item.estado.id</span>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <th class="tituloCol" mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-icon-button matTooltip="Detalle" aria-label="Detalle" color="primary"
+                    (click)="detalleDeuda(row.numResidencia)">
+                    <mat-icon class="mat-18">info</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator #paginator [length]="dataSource?.data?.length" [pageIndex]="0" [pageSize]="5"
+        [pageSizeOptions]="[3, 5, 10]" aria-label="Seleccione una pagina">
+    </mat-paginator>
+    <!-- Table -->
+</div>

@@ -1,0 +1,37 @@
+<mat-drawer-container class="example-container" *ngIf="datos">
+    <mat-drawer mode="side" opened>
+        <h1 class="main-text">{{ datos.nombre }}</h1>
+        <div>
+            <div style="margin: 5px;">
+                <h3>Seleccione el horario que más desee:</h3>
+            </div>
+            <div style="text-align: center;">
+                <mat-chip-list aria-multiselectable="true" selectable *ngFor="let item of horariosAreaCom">
+                    <div style="margin: 0 auto;">
+                        <div style="margin: 10px 0px;">
+                            <span style="font-size: 15px;">Fecha disponible:
+                                <strong>{{item.fecha}}</strong></span>
+                        </div>
+                        <div>
+                            <mat-chip [disabled]="isDisabled(item)" [selected]="isSelected(item)"
+                                (click)="toggleSelected(item)" [color]="isSelected(item) ? 'warn' : ''">
+                                <mat-icon>{{ isDisabled(item) ? 'highlight_off' : isSelected(item) ? 'done' : ''
+                                    }}</mat-icon>
+                                {{ item.horaInicio }} - {{ item.horaFinal }}
+                            </mat-chip>
+                        </div>
+                    </div>
+                </mat-chip-list>
+
+                <div style="margin-top: 50px;">
+                    <button (click)="createReservation()" [ngClass]="{'boton': !disableButton}"
+                        [disabled]="disableButton">Reservar</button>
+                </div>
+            </div>
+        </div>
+
+    </mat-drawer>
+    <mat-drawer-content>
+        <img style="width: 100%; height: 600px;" src="{{ datos.foto }}">
+    </mat-drawer-content>
+</mat-drawer-container>

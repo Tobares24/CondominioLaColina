@@ -1,0 +1,14 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Áreas Comunes</h1>
+    <mat-grid-list cols="3" rowHeight="300px" gutterSize="20px" *ngIf="datos">
+        <mat-grid-tile *ngFor="let item of datos">
+            <img style="width: 500px; height: 100%;" src="{{item.foto}}">
+            <mat-grid-tile-header>
+                <h3 class="text">{{item.nombre}}</h3>
+            </mat-grid-tile-header>
+            <mat-grid-tile-footer style="text-align: center;">
+                <button class="boton" (click)="reservar(item.id)">Reservar</button>
+            </mat-grid-tile-footer>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

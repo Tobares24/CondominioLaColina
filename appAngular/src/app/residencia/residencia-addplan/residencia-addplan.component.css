@@ -1,0 +1,24 @@
+.text {
+  font-size: 20px;
+  color: #fff;
+  display: block;
+}
+
+.main-text {
+  margin: 10px;
+  color: #fff;
+}
+
+.btn {
+  font-size: 18px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #008037;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: #fff;
+}

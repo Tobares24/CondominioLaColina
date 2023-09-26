@@ -1,0 +1,36 @@
+* {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.full-width {
+  margin-bottom: 18%;
+}
+
+#titulo {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.btnCrear {
+  background-color: #008037;
+  color: #ffffff;
+}
+
+.tituloCol {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+table {
+  text-align: left;
+  width: 100%;
+}
+
+th {
+  background-color: #008037;
+}
+
+.mat-card:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}

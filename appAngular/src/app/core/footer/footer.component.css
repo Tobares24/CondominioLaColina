@@ -1,0 +1,15 @@
+*{
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.footer {
+    bottom: 0px;
+    width: 100%;
+    background-color: #212121;
+}
+
+.title-center {
+    flex: 1 1 auto;
+    text-align: center;
+}

@@ -1,0 +1,158 @@
+<h1 style="color: #008037; margin: 20px 5px;">Mis reservaciones</h1>
+<mat-tab-group style="background-color: #000; height: auto;" animationDuration="1500ms" mat-align-tabs="center">
+
+    <mat-tab label="En proceso">
+        <div *ngIf="datos"
+            style="display: flex; align-items: center; align-content: center; justify-content: center; margin: 10px 0px;">
+            <mat-drawer-container style="width: 100%;" *ngFor="let item of datos">
+                <mat-drawer mode="side" opened>
+                    <h1 class="main-text">{{ item.areaComun.nombre }}</h1>
+                    <div>
+                        <div style="text-align: center;">
+                            <h3 style="text-align: left; font-size: 20px;">Estado de la reservación:</h3>
+                            <div style="margin: 20px;">
+                                    <strong>
+                                        
+                                        <mat-icon class="mat-18">{{item.estado.id === 1 ? 'history' : item.estado.id ===
+                                            2 ? 'check_circle_outline' : 'highlight_off'}}</mat-icon>
+                                        {{item.estado.descripcion}}
+
+                                    </strong>
+                            </div>
+
+                            <h3 style="text-align: left; margin-top: 10%; font-size: 20px;">Fechas y horas reservadas</h3>
+                            <div *ngFor="let i of item.horario"
+                                style="display: flex; align-items: center; align-content: center; justify-content: center;">
+                                <div style="margin: 20px;">
+                                    <span>
+                                        <strong>
+                                            <mat-icon>event</mat-icon>
+                                            {{i.fecha}}
+                                        </strong>
+                                    </span>
+                                </div>
+                                <div style="margin: 20px;">
+                                    <span>
+                                        <strong>
+                                            <mat-icon>access_time</mat-icon>
+                                            {{i.horaInicio}} - {{i.horaFinal}}
+                                        </strong>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-drawer>
+                <mat-drawer-content>
+                    <img style="width: 95%; height: 500px;" src="{{ item.areaComun.foto }}">
+                </mat-drawer-content>
+            </mat-drawer-container>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Aprobadas">
+
+        <div *ngIf="datos2"
+            style="display: flex; align-items: center; align-content: center; justify-content: center; margin: 10px 0px;">
+            <mat-drawer-container style="width: 90%;" *ngFor="let item of datos2">
+                <mat-drawer mode="side" opened>
+                    <h1 class="main-text">{{ item.areaComun.nombre }}</h1>
+                    <div>
+                        <div style="text-align: center;">
+                            <h3 style="text-align: left; font-size: 20px;">Estado de la reservación:</h3>
+                            <div style="margin: 20px;">
+                                    <strong>
+                                        
+                                        <mat-icon class="mat-18">{{item.estado.id === 1 ? 'history' : item.estado.id ===
+                                            2 ? 'check_circle_outline' : 'highlight_off'}}</mat-icon>
+                                        {{item.estado.descripcion}}
+
+                                    </strong>
+                            </div>
+
+                            <h3 style="text-align: left; margin-top: 10%; font-size: 20px;">Fechas y horas reservadas</h3>
+                            <div *ngFor="let i of item.horario"
+                                style="display: flex; align-items: center; align-content: center; justify-content: center;">
+                                <div style="margin: 20px;">
+                                    <span>
+                                        <strong>
+                                            <mat-icon>event</mat-icon>
+                                            {{i.fecha}}
+                                        </strong>
+                                    </span>
+                                </div>
+                                <div style="margin: 20px;">
+                                    <span>
+                                        <strong>
+                                            <mat-icon>access_time</mat-icon>
+                                            {{i.horaInicio}} - {{i.horaFinal}}
+                                        </strong>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-drawer>
+                <mat-drawer-content>
+                    <img style="width: 95%; height: 500px;" src="{{ item.areaComun.foto }}">
+                </mat-drawer-content>
+            </mat-drawer-container>
+        </div>
+
+    </mat-tab>
+
+    <mat-tab label="Rechazadas">
+
+        <div *ngIf="datos3"
+            style="display: flex; align-items: center; align-content: center; justify-content: center; margin: 10px 0px;">
+            <mat-drawer-container style="width: 90%;" *ngFor="let item of datos3">
+                <mat-drawer mode="side" opened>
+                    <h1 class="main-text">{{ item.areaComun.nombre }}</h1>
+                    <div>
+                        <div style="text-align: center;">
+                            <h3 style="text-align: left; font-size: 20px;">Estado de la reservación:</h3>
+                            <div style="margin: 20px;">
+                                    <strong>
+                                        
+                                        <mat-icon class="mat-18">{{item.estado.id === 1 ? 'history' : item.estado.id ===
+                                            2 ? 'check_circle_outline' : 'highlight_off'}}</mat-icon>
+                                        {{item.estado.descripcion}}
+
+                                    </strong>
+                            </div>
+
+                            <h3 style="text-align: left; margin-top: 10%; font-size: 20px;">Fechas y horas reservadas</h3>
+                            <div *ngFor="let i of item.horario"
+                                style="display: flex; align-items: center; align-content: center; justify-content: center;">
+                                <div style="margin: 20px;">
+                                    <span>
+                                        <strong>
+                                            <mat-icon>event</mat-icon>
+                                            {{i.fecha}}
+                                        </strong>
+                                    </span>
+                                </div>
+                                <div style="margin: 20px;">
+                                    <span>
+                                        <strong>
+                                            <mat-icon>access_time</mat-icon>
+                                            {{i.horaInicio}} - {{i.horaFinal}}
+                                        </strong>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-drawer>
+                <mat-drawer-content>
+                    <img style="width: 95%; height: 500px;" src="{{ item.areaComun.foto }}">
+                </mat-drawer-content>
+            </mat-drawer-container>
+        </div>
+    
+    </mat-tab>
+
+</mat-tab-group>

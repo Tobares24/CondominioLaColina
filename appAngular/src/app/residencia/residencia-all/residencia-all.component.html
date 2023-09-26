@@ -1,0 +1,61 @@
+<mat-card class="full-width">
+  <mat-card-title id="titulo">
+    Residencias
+    <a (click)="crearResidencia()" mat-mini-fab matTooltip="Crear" aria-label="Crear" class="btnCrear">
+      <mat-icon class="btnCrear">add</mat-icon>
+    </a>
+  </mat-card-title>
+  <mat-card-content class="contenidoTabla">
+    <div class="mat-elevation-z8" *ngIf="dataSource">
+      <!-- Table -->
+      <table mat-table class="full-width-table" [dataSource]="dataSource" matSort matSortStart="desc"
+        aria-label="Elements">
+        <!-- Columna nombre -->
+        <ng-container matColumnDef="foto">
+          <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Imagen</th>
+          <td mat-cell *matCellDef="let row">
+            <img src="{{ row.foto }}" style="width: 200px; height: 150px;" />
+          </td>
+        </ng-container>
+
+        <!-- Columna precio -->
+        <ng-container matColumnDef="numResidencia">
+          <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>
+            Número de Residencia
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.numResidencia }}</td>
+        </ng-container>
+
+        <!-- Columna Estado -->
+        <ng-container matColumnDef="precio">
+          <th class="tituloCol" mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+          <td mat-cell *matCellDef="let row">
+            ₡{{ row.precio }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+          <th class="tituloCol" mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let row">
+            <button (click)="actualizarResidencia(row.numResidencia)" mat-mini-fab matTooltip="Actualizar"
+              aria-label="Actualizar" color="success" class="btn">
+              <mat-icon class="mat-18">edit</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Detalle" aria-label="Detalle" color="primary" class="btnDetalle"
+              (click)="detalleResidencia(row.numResidencia)">
+              <mat-icon class="mat-18">info</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator #paginator [length]="dataSource?.data?.length" [pageIndex]="0" [pageSize]="5"
+        [pageSizeOptions]="[3, 5, 10]" aria-label="Seleccione una pagina">
+      </mat-paginator>
+      <!-- Table -->
+    </div>
+  </mat-card-content>
+</mat-card>

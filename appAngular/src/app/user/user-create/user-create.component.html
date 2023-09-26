@@ -1,0 +1,102 @@
+<h1 style="margin: 10px;">Crear Usuario</h1>
+<form [formGroup]="userForm" novalidate>
+    <div
+        style="display: flex; align-items: center; align-content: center; justify-content: center; background-color: #008037;">
+
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <div class="full-width">
+                        <label style="display: block; color: #fff;">Nombre</label>
+                        <input style="width: 300px;" type="text" placeholder="Nombre" formControlName="nombre" />
+                        <mat-error style="color: #000" *ngIf="errorHandling('nombre', 'required')">
+                            Nombre es <strong>requerido</strong>
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="full-width">
+                        <label style="display: block; color: #fff;">Primer Apellido</label>
+                        <input style="width: 300px;" type="text" placeholder="Primer Apellido" formControlName="primerApellido" />
+                        <mat-error style="color: #000" *ngIf="errorHandling('primerApellido', 'required')">
+                            Primer Apellido es <strong>requerido</strong>
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="full-width">
+                        <label style="display: block; color: #fff;">Segundo Apellido</label>
+                        <input style="width: 300px;" type="text" placeholder="Segundo Apellido" formControlName="segundoApellido" />
+                        <mat-error style="color: #000" *ngIf="errorHandling('segundoApellido', 'required')">
+                            Segundo Apellido es <strong>requerido</strong>
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="full-width">
+                        <label style="display: block; color: #fff;">Email</label>
+                        <input style="width: 300px;" type="text" placeholder="Email usuario" formControlName="email" />
+                        <mat-error style="color: #000" *ngIf="errorHandling('email', 'required')">
+                            Email es <strong>requerido</strong>
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="full-width">
+                        <label style="display: block; color: #fff;">Contraseña</label>
+                        <input style="width: 300px;" [type]="hide ? 'password' : 'text'" placeholder="Contraseña" formControlName="clave" />
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error style="color: #000" *ngIf="errorHandling('clave', 'required')">
+                            Contraseña es <strong>requerido</strong>
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="full-width">
+                        <label style="display: block; color: #fff;">Rol</label>
+                        <mat-select placeholder="Rol" formControlName="rol">
+                            <mat-option *ngFor="let r of rolesList" [value]="r.id">
+                                {{ r.descripcion }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error style="color: #000" *ngIf="errorHandling('rol', 'required')">
+                            Rol es <strong>requerido</strong>
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="full-width">
+                        <label style="display: block; color: #fff;">Estado</label>
+                        <mat-select placeholder="Estado" formControlName="estado">
+                            <mat-option *ngFor="let e of estadosList" [value]="e.id">
+                                {{ e.descripcion }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error style="color: #000" *ngIf="errorHandling('estado', 'required')">
+                            Estado es <strong>requerido</strong>
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </div>
+
+    <div style="text-align: center; margin: 10px;">
+        <button mat-raised-button class="btn" (click)="submitForm()">Registrar</button>
+    </div>
+</form>

@@ -1,0 +1,54 @@
+mat-form-field.mat-form-field {
+  font-size: 16px;
+  color: black
+}
+
+.mat-card {
+  color: black;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.shipping-card {
+  min-width: 120px;
+  margin: 20px auto;
+  
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.btn {
+  font-size: 18px;
+  background-color: #008037;
+  color: #000;
+  border: 1px solid #000;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: #000;
+}
+
